@@ -34,7 +34,7 @@ body {
     margin-right: 15px;
     opacity: 0.8;
 }
-/*  background-color: #2EC4B6;  */
+
 .nav-center-text {
     flex: 1; 
     display: flex;
@@ -101,7 +101,9 @@ body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); 
 }
 
-/* 6. Telefoane și Tablete */
+/* 6. =========================================
+  ADAPTARE TELEFON
+   ========================================= */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column; 
@@ -122,4 +124,256 @@ body {
         width: 100%; 
         text-align: center;
     }
+
+
+    .hero-section {
+         flex-direction: column; 
+        padding: 60px 5%;
+    }
+
+    .hero-left {
+        margin-bottom: 60px;
+    }
+    
+    .hero-title {
+        font-size: 46px; 
+    }
+    
+    .hero-buttons {
+        flex-direction: column; 
+    }
+    
+    .btn-primary, .btn-secondary {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .hero-right {
+        justify-content: center;
+    }
 }
+
+/* =========================================
+   SECȚIUNEA HERO (ACASĂ)
+   ========================================= */
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 5%; 
+    background-color: #F9F9F6; 
+    min-height: calc(100vh - 80px); 
+}
+
+/* --- Partea Stângă --- */
+.hero-left {
+    flex: 1; 
+    max-width: 600px; 
+}
+
+.hero-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8b7355; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.hero-title {
+    font-family: 'Playfair Display', serif; 
+    font-size: 64px;
+    color: #0f172a;
+    line-height: 1.1; 
+    margin: 20px 0;
+}
+
+.hero-title em {
+    font-style: italic;
+    color: #334155; 
+}
+.marker {
+    position: relative;
+    z-index: 1;
+}
+.marker::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 8px; 
+    width: 100%;
+    height: 14px;
+    background-color: #2EC4B6; 
+    z-index: -1;
+}
+
+.hero-title em::after {
+    content: '';
+    position: absolute;
+    left: -2%;
+    bottom: 8px; 
+    width: 104%; 
+    height: 14px;
+    background-color: #2EC4B6; 
+    opacity: 0.3; 
+    z-index: -1; 
+    transform: rotate(-1deg); 
+}
+
+.hero-description {
+    font-size: 16px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 85%;
+}
+
+/* Butoanele din Hero */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-primary {
+    background-color: #121826; 
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #1e293b;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #121826;
+    padding: 14px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    border-color: #0f172a;
+    background-color: #f1f5f9;
+    transform: translateY(-2px);
+}
+.hero-trust {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-trust .stars {
+    color: #F2B134; 
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.hero-trust p {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* --- Partea Dreaptă  --- */
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+.exemplu-card {
+    background: #fbfbf9; 
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Umbră fină */
+    max-width: 480px;
+    border: 1px solid #eaeaea;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Antetul */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8b7355; 
+    letter-spacing: 2px;
+}
+
+.card-rev {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Liniile separatoare */
+.solid-line {
+    border:none;
+    border-top: 1px solid #d1d5db;
+    margin-bottom: 25px;
+}
+
+.dotted-line {
+    border: none;
+    border-top: 1px dashed #d1d5db;
+    margin: 25px 0 20px 0;
+}
+
+/* Textul taiat */
+.text-lined {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    color: #6b7280;
+    text-decoration: line-through;
+    text-decoration-color: #b91c1c; 
+    text-decoration-thickness: 1.5px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+/* Textul nou */
+.text-unlined {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #111827; 
+    line-height: 1.5;
+}
+
+/* Explicația de subsol */
+.card-explication {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+    display: flex; 
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.pilcrow {
+    color: #b91c1c;
+    font-weight: bold;
+    font-size: 16px;
+}
+
