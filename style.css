@@ -12,11 +12,15 @@ body {
 
 /* 2. Containerul principal al meniului */
 .navbar {
-    background-color: #12263F; 
+    background-color: rgba(18, 38, 63, 0.9); /* Același albastru închis, dar cu 10% transparență */
+    backdrop-filter: blur(12px); /* Efectul de sticlă mată */
     display: flex;
     align-items: center; 
-    padding: 10px 5%;
+    padding: 5px 5%;
     min-height: 80px; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 /* 3. Logo*/
@@ -38,14 +42,24 @@ body {
 .nav-center-text {
     flex: 1; 
     display: flex;
-    align-items: center;
-    justify-content: flex-start; 
-    color: #e2e8f0; 
-    font-family: 'Playfair Display', serif; 
-    font-size: 24px; 
-    font-weight: 500;
-    letter-spacing: 1px; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    justify-content: center; 
     margin-left: 20px; 
+    gap: 4px; 
+}
+.nav-brand-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2EC4B6; 
+    letter-spacing: 2px;
+}
+.nav-brand-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: #e2e8f0; 
 }
 
 /* 4. Lista de link-uri */
@@ -151,6 +165,11 @@ body {
     .hero-right {
         justify-content: center;
     }
+
+    .hero-image {
+        max-width: 100%; /* Pe telefon, poza ocupă toată lățimea ecranului */
+        margin-top: 20px;
+    }
 }
 
 /* =========================================
@@ -162,7 +181,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 80px 5%; 
-    background-color: #F9F9F6; 
+    background-color: #fffaef; 
     min-height: calc(100vh - 80px); 
 }
 
@@ -285,95 +304,304 @@ body {
 }
 
 /* --- Partea Dreaptă  --- */
+/* --- Partea Dreaptă (Imaginea) --- */
 .hero-right {
     flex: 1;
     display: flex;
     justify-content: flex-end;
+    align-items: center; /* Centrează imaginea pe verticală față de textul din stânga */
 }
+
+/* Stilizarea imaginii temporare/finale */
+.hero-image {
+    width: 100%;
+    max-width: 800px; /* Controlează cât de mare să fie poza */
+    height: auto;
+    border-radius: 12px; /* Colțuri elegant rotunjite */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Umbră fină pentru a o scoate în evidență */
+    object-fit: cover; /* Se asigură că poza nu se distorsionează */
+    animation: float 8s ease-in-out infinite; /* Am păstrat efectul de plutire, dar l-am făcut un pic mai lent (8s) */
+}
+
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-12px); }
     100% { transform: translateY(0px); }
 }
 
-.exemplu-card {
-    background: #fbfbf9; 
-    padding: 30px 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Umbră fină */
-    max-width: 480px;
-    border: 1px solid #eaeaea;
-    animation: float 6s ease-in-out infinite;
+.solid-line
+{
+    border-top-color: #2EC4B6;
+    color:black;
 }
 
-/* Antetul */
-.card-header {
+
+/* =========================================
+   SECȚIUNEA PROBLEMA
+   ========================================= */
+
+.problem-section {
+    background-color: #fbfaf8; /* Un gri extrem de deschis, care adaugă o textură subtilă față de albul pur */
+    padding: 120px 5%; /* Am mărit puțin padding-ul sus/jos pentru respirație */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 15px;
+    border-top: 1px solid #e2e8f0; /* O linie fină care separă clar secțiunea Hero de aceasta */
 }
 
-.card-title {
+.problem-container {
+    display: flex;
+    width: 100%;
+    max-width: 1400px; /* Am strâns puțin lățimea maximă ca să nu pară "răsfirate" pe ecrane mari */
+    justify-content: space-between;
+    gap: 100px; /* Am redus distanța pentru a apropia cele două coloane */
+    margin-bottom: 100px;
+}
+
+/* --- Stânga (Titlul și Intro) --- */
+.problem-left {
+    width: 550px; /* O idee mai lat pentru a acomoda paragraful */
+}
+
+.section-subtitle {
+    font-family: 'Inter', sans-serif;
     font-size: 13px;
     font-weight: 600;
     color: #8b7355; 
     letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 20px; /* Spațiu mai mare sub subtitlu */
 }
 
-.card-rev {
+.problem-title {
     font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: #64748b;
-    font-size: 14px;
+    font-size: 46px; /* Ușor ajustat */
+    color: #0f172a; 
+    line-height: 1.15;
+    margin-bottom: 25px; /* Spațiu între titlu și noul paragraf */
 }
 
-/* Liniile separatoare */
-.solid-line {
-    border:none;
-    border-top: 1px solid #d1d5db;
-    margin-bottom: 25px;
-}
-
-.dotted-line {
-    border: none;
-    border-top: 1px dashed #d1d5db;
-    margin: 25px 0 20px 0;
-}
-
-/* Textul taiat */
-.text-lined {
-    font-family: 'Playfair Display', serif;
-    font-size: 19px;
-    color: #6b7280;
-    text-decoration: line-through;
-    text-decoration-color: #b91c1c; 
-    text-decoration-thickness: 1.5px;
-    line-height: 1.5;
-    margin-bottom: 25px;
-}
-
-/* Textul nou */
-.text-unlined {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    color: #111827; 
-    line-height: 1.5;
-}
-
-/* Explicația de subsol */
-.card-explication {
-    font-size: 13px;
-    color: #6b7280;
-    line-height: 1.6;
-    display: flex; 
-    align-items: flex-start;
-    gap: 8px;
-}
-
-.pilcrow {
-    color: #b91c1c;
-    font-weight: bold;
+.problem-intro {
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
+    color: #475569;
+    line-height: 1.6;
 }
 
+/* --- Dreapta (Lista cu separatoare) --- */
+.problem-right {
+    flex: 1;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+}
+
+.problem-item {
+    position: relative; /* Esențial: ține numărul uriaș în interiorul acestui bloc */
+    display: flex;
+    align-items: flex-start;
+    padding: 40px 0; /* Spațiu mai generos sus și jos */
+    border-bottom: 1px solid #e2e8f0;
+    overflow: hidden; /* Taie marginile numărului dacă e prea mare */
+}
+/* Eliminăm linia de jos pentru ultimul element, ca să arate curat */
+.problem-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+/* Adăugăm o linie sus pentru primul element pentru a încadra lista */
+.problem-item:first-child {
+    padding-top: 20px;
+}
+
+
+.problem-number {
+    position: absolute;
+    top: -20px; /* Îl ridicăm să iasă puțin din cadru */
+    left: -7px; /* Îl tragem spre marginea stângă */
+    font-family: 'Playfair Display', serif; /* Folosim fontul cu serife pentru un aer editorial */
+    font-size: 150px; /* Uriaș */
+    font-weight: 700px;
+    color: hsl(33, 24%, 44%, 25%); 
+    line-height: 1;
+    z-index: 0; /* Îl trimitem în spate */
+    user-select: none; /* Împiedică utilizatorul să selecteze numărul cu mouse-ul */
+}
+/* Textul care vine suprapus */
+.problem-text {
+    position: relative;
+    z-index: 1; /* Îl aducem în fața numărului */
+    padding-left: 60px; /* Împingem textul spre dreapta, să taie frumos numărul pe jumătate */
+    margin-top: 35px; /* Coborâm textul ca să cadă pe centrul numărului uriaș */
+}
+
+.problem-text h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 19px; 
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.problem-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* --- Citatul de tranziție --- */
+.problem-transition {
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.problem-transition p {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #0f172a;
+    line-height: 1.4;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 25px rgba(46, 196, 182, 0.3);
+}
+
+.problem-transition p em {
+    font-style: italic;
+    color: #2EC4B6; 
+}
+
+.transition-line {
+    width: 200px;
+    height: 1px;
+    background-color: #cbd5e1;
+    border:none;
+    margin: 0 auto;
+}
+/* --- Responsivitate (Telefoane) --- */
+@media (max-width: 768px) {
+    .problem-section {
+        padding: 60px 5%;
+    }
+    
+    .problem-container {
+        flex-direction: column; /* Pe telefon le punem una sub alta */
+        gap: 50px;
+    }
+    
+    .problem-title {
+        font-size: 36px;
+    }
+    
+    .problem-transition p {
+        font-size: 24px; /* Textul centrat mai mic pe mobil */
+    }
+}
+
+/* =========================================
+   SECȚIUNEA ABORDAREA NARRATIVE
+   ========================================= */
+
+.approach-section {
+   background-color: #fffaef; /* Revenim la crem-ul din Hero pentru a face un sandviș cromatic (Crem -> Alb -> Crem) */
+    padding: 120px 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.approach-container {
+    width: 100%;
+    max-width: 1300px; /* Aliniat perfect cu lățimile din secțiunile anterioare */
+}
+
+/* --- Antetul secțiunii --- */
+.approach-header {
+    max-width: 700px;
+    margin-bottom: 80px;
+}
+
+.approach-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #0f172a;
+    line-height: 1.15;
+    margin: 20px 0;
+}
+
+.approach-intro {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* --- Grila de carduri --- */
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 coloane egale */
+    gap: 40px; /* Aer între carduri */
+}
+
+/* --- Designul Cardului --- */
+.approach-card {
+    background-color: #ffffff; /* Carduri de un alb pur care ies în evidență pe fundalul crem */
+    padding: 50px 40px;
+    border-radius: 6px; 
+    border: 1px solid #475569; 
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Animație lentă și fluidă pentru hover */
+}
+
+/* Interacțiunea de Hover */
+.approach-card:hover {
+    transform: translateY(-10px); /* Cardul se ridică puțin */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06); /* Apare o umbră difuză dedesubt */
+    border-color: #2EC4B6; /* Conturul prinde acea nuanță de mentă pală */
+}
+
+/* Literele grecești */
+.greek-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-style: italic;
+    color: #8b7355; 
+    display: block;
+    margin-bottom: 25px;
+    transition: color 0.4s ease;
+}
+
+/* La trecerea mouse-ului peste card, litera grecească ia culoarea brandului */
+.approach-card:hover .greek-letter {
+    color: #2EC4B6;
+}
+
+.card-title {
+    font-family: 'Playfair Display', serif; /* Fontul premium cu serife mută cardul din zona tehnică în cea de consultanță */
+    font-size: 22px;
+    color: #0f172a;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* --- Responsivitate (Telefoane și Tablete) --- */
+@media (max-width: 992px) {
+    .approach-grid {
+        grid-template-columns: 1fr; /* Se pun una sub alta pe ecrane mai mici */
+        gap: 20px;
+    }
+    
+    .approach-title {
+        font-size: 38px;
+    }
+    
+    .approach-card {
+        padding: 40px 30px;
+    }
+}
